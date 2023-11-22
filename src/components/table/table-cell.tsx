@@ -6,7 +6,9 @@ interface ITableCell extends React.TdHTMLAttributes<HTMLTableCellElement> {
 
 export const TableCell = ({ children, ...props }: ITableCell): JSX.Element => {
   return (
-    <td className=" px-6 py-4 text-left" {...props}>
+    <td
+      className="px-6 py-4 whitespace-no-wrap overflow-ellipsis w-[50px] truncate"
+      {...props}>
       {children}
     </td>
   );

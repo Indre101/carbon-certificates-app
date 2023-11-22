@@ -9,7 +9,10 @@ export const TableRowHeader = ({
   ...props
 }: ITableRowHeader): JSX.Element => {
   return (
-    <th scope="row" className="px-6 text-left" {...props}>
+    <th
+      scope="row"
+      className="px-6 text-left truncate max-w-[200px]"
+      {...props}>
       {children}
     </th>
   );
