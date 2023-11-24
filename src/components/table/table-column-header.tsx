@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 
 interface ITableColumnHeader
   extends React.ThHTMLAttributes<HTMLTableCellElement> {
-  children: ReactNode;
+  children?: ReactNode;
 }
 
 export const TableColumnHeader = ({
