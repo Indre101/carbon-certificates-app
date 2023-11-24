@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useFetchPaginatedCertificates } from "../api";
 import {
   Table,
@@ -9,18 +10,21 @@ import {
   TableCell,
   LoadingWrapper,
   SaveButton,
+  Pagination,
 } from "../components";
 import { useSaveCertificate } from "../hooks";
 import { copyToClipBoard } from "../utils";
 
 export const Certificates = () => {
-  const { certificates, isLoading } = useFetchPaginatedCertificates();
+  const [activePage, setActivePage] = useState<number>(1);
+  const { certificates, isLoading, pages } =
+    useFetchPaginatedCertificates(activePage);
   const { handleSaveCertificate, savedCertificates } = useSaveCertificate();
 
   return (
     <LoadingWrapper isLoading={isLoading}>
-      <div className="flex justify-center py-12">
-        <div className="overflow-scroll max-h-[80%] max-w-[80%] rounded border border-neutral-100">
+      <div className="flex justify-center h-full py-12 flex-col justify-center items-center space-between">
+        <div className="overflow-scroll max-h-[85%] max-w-[80%] rounded border border-neutral-100">
           <Table className="w-full">
             <TableHead>
               <TableRow>
@@ -61,6 +65,13 @@ export const Certificates = () => {
               })}
             </TableBody>
           </Table>
+        </div>
+        <div className="mt-auto">
+          <Pagination
+            current={activePage}
+            total={pages ?? 0}
+            onPageChange={setActivePage}
+          />
         </div>
       </div>
     </LoadingWrapper>

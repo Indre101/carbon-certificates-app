@@ -18,7 +18,7 @@ export const Favourites = () => {
   return (
     <div className="flex justify-center py-12">
       {Object.keys(savedCertificates).length !== 0 ? (
-        <div className="overflow-scroll max-h-[80%] max-w-[80%] rounded border border-neutral-100">
+        <div className="overflow-scroll max-h-[85%] max-w-[80%] rounded border border-neutral-100">
           <Table className="w-full">
             <TableHead>
               <TableRow>

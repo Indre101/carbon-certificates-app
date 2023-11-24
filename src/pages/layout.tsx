@@ -15,7 +15,9 @@ export const Layout = () => {
           </li>
         </ul>
       </nav>
-      <Outlet />
+      <div className="h-[calc(100vh-100px)]">
+        <Outlet />
+      </div>
       <Toaster position="bottom-left" />
     </>
   );

@@ -1,4 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, keepPreviousData } from "@tanstack/react-query";
 import axios from "axios";
 import { ApiResponse, ICertificates } from "../../types";
 
@@ -20,11 +20,18 @@ const fetchCertificates = async (page = 1): Promise<ICertificates> => {
   return response.data.result;
 };
 
-export const useFetchPaginatedCertificates = () => {
+export const useFetchPaginatedCertificates = (page: number) => {
   const { data, isLoading, isError, isPending } = useQuery({
-    queryKey: ["certificates"],
-    queryFn: () => fetchCertificates(),
+    queryKey: ["certificates", page],
+    queryFn: () => fetchCertificates(page),
+    placeholderData: keepPreviousData,
   });
 
-  return { certificates: data?.data, isLoading, isError, isPending };
+  return {
+    certificates: data?.data,
+    isLoading,
+    isError,
+    isPending,
+    pages: data?.meta.totalPages,
+  };
 };

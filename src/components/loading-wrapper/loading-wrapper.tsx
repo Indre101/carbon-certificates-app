@@ -8,7 +8,7 @@ interface ILoadingWrapper {
 
 export const LoadingWrapper = ({ children, isLoading }: ILoadingWrapper) =>
   isLoading ? (
-    <div className="flex h-[calc(100vh-100px)] items-center justify-center relative">
+    <div className="flex h-full items-center justify-center">
       <Spinner />
     </div>
   ) : (
