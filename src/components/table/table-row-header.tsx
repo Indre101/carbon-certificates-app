@@ -11,7 +11,7 @@ export const TableRowHeader = ({
   return (
     <th
       scope="row"
-      className="px-6 text-left truncate max-w-[200px] cursor-pointer"
+      className="px-6 text-left truncate max-w-[400px] cursor-pointer"
       {...props}>
       {children}
     </th>

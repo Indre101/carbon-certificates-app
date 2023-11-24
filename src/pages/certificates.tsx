@@ -20,7 +20,7 @@ export const Certificates = () => {
   return (
     <LoadingWrapper isLoading={isLoading}>
       <div className="flex justify-center py-12">
-        <div className="overflow-scroll max-h-[80%] max-w-[800px] rounded border border-neutral-100">
+        <div className="overflow-scroll max-h-[80%] max-w-[80%] rounded border border-neutral-100">
           <Table className="w-full">
             <TableHead>
               <TableRow>
