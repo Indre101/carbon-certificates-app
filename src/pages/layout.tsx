@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom";
 import { NavLink } from "../components";
+import { Toaster } from "react-hot-toast";
 
 export const Layout = () => {
   return (
@@ -15,6 +16,7 @@ export const Layout = () => {
         </ul>
       </nav>
       <Outlet />
+      <Toaster position="bottom-left" />
     </>
   );
 };
